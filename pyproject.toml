@@ -81,5 +81,8 @@ only-include = ["cloudcoil"]
 # Unique name for the models
 # This will be used as the name for the setuptools entrypoints
 namespace = "cloudcoil.models.prometheus_operator"
-input = "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.79.2/bundle.yaml"
+# Split the crl urls by comma
+input = [
+    "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.79.2/bundle.yaml",
+]
 crd-namespace = "com.coreos.monitoring"
