@@ -1,6 +1,11 @@
 # cloudcoil-models-prometheus-operator
 
 Versioned prometheus-operator models for cloudcoil.
+
+[![PyPI](https://img.shields.io/pypi/v/cloudcoil.models.prometheus_operator.svg)](https://pypi.python.org/pypi/cloudcoil.models.prometheus_operator)
+[![Downloads](https://static.pepy.tech/badge/cloudcoil.models.prometheus_operator)](https://pepy.tech/project/cloudcoil.models.prometheus_operator)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/license/apache-2-0/)
+[![CI](https://github.com/cloudcoil/models-prometheus-operator/actions/workflows/ci.yml/badge.svg)](https://github.com/cloudcoil/models-prometheus-operator/actions/workflows/ci.yml)
 > [!WARNING]  
 > This repository is auto-generated from the [cloudcoil repository](https://github.com/cloudcoil/cloudcoil/tree/main/models/prometheus-operator). Please do not submit pull requests here. Instead, submit them to the main repository at https://github.com/cloudcoil/cloudcoil.
 
