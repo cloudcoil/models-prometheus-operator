@@ -29932,19 +29932,19 @@ class TlsConfigModel2(BaseModel):
     """
 
 
-class Alertmanager(Resource):
+class AlertmanagerEndpoints(BaseModel):
     class Builder(BaseModelBuilder):
         @property
-        def cls(self) -> Type["Alertmanager"]:
-            return Alertmanager
+        def cls(self) -> Type["AlertmanagerEndpoints"]:
+            return AlertmanagerEndpoints
 
-        def build(self) -> "Alertmanager":
-            return Alertmanager(**self._attrs)
+        def build(self) -> "AlertmanagerEndpoints":
+            return AlertmanagerEndpoints(**self._attrs)
 
         @overload
         def alert_relabelings(
             self, value_or_callback: List[AlertRelabeling], /
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def alert_relabelings(
@@ -29955,7 +29955,7 @@ class Alertmanager(Resource):
                 | List[AlertRelabeling],
             ],
             /,
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def alert_relabelings(
@@ -29993,7 +29993,7 @@ class Alertmanager(Resource):
         @overload
         def authorization(
             self, value_or_callback: Optional[Authorization], /
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def authorization(
@@ -30002,7 +30002,7 @@ class Alertmanager(Resource):
                 [Authorization.Builder], Authorization.Builder | Authorization
             ],
             /,
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def authorization(
@@ -30033,14 +30033,14 @@ class Alertmanager(Resource):
         @overload
         def basic_auth(
             self, value_or_callback: Optional[BasicAuth], /
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def basic_auth(
             self,
             value_or_callback: Callable[[BasicAuth.Builder], BasicAuth.Builder | BasicAuth],
             /,
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def basic_auth(self, value_or_callback: Never = ...) -> "BasicAuth.BuilderContext": ...
@@ -30145,7 +30145,9 @@ class Alertmanager(Resource):
             return self._set("proxy_url", value)
 
         @overload
-        def relabelings(self, value_or_callback: List[Relabeling], /) -> "Alertmanager.Builder": ...
+        def relabelings(
+            self, value_or_callback: List[Relabeling], /
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def relabelings(
@@ -30155,7 +30157,7 @@ class Alertmanager(Resource):
                 GenericListBuilder[Relabeling, Relabeling.Builder] | List[Relabeling],
             ],
             /,
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def relabelings(
@@ -30188,12 +30190,14 @@ class Alertmanager(Resource):
             return self._set("scheme", value)
 
         @overload
-        def sigv4(self, value_or_callback: Optional[Sigv4], /) -> "Alertmanager.Builder": ...
+        def sigv4(
+            self, value_or_callback: Optional[Sigv4], /
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def sigv4(
             self, value_or_callback: Callable[[Sigv4.Builder], Sigv4.Builder | Sigv4], /
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def sigv4(self, value_or_callback: Never = ...) -> "Sigv4.BuilderContext": ...
@@ -30230,7 +30234,7 @@ class Alertmanager(Resource):
         @overload
         def tls_config(
             self, value_or_callback: Optional[TlsConfigModel2], /
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def tls_config(
@@ -30239,7 +30243,7 @@ class Alertmanager(Resource):
                 [TlsConfigModel2.Builder], TlsConfigModel2.Builder | TlsConfigModel2
             ],
             /,
-        ) -> "Alertmanager.Builder": ...
+        ) -> "AlertmanagerEndpoints.Builder": ...
 
         @overload
         def tls_config(
@@ -30265,9 +30269,9 @@ class Alertmanager(Resource):
                     value = output
             return self._set("tls_config", value)
 
-    class BuilderContext(BuilderContextBase["Alertmanager.Builder"]):
+    class BuilderContext(BuilderContextBase["AlertmanagerEndpoints.Builder"]):
         def model_post_init(self, __context) -> None:
-            self._builder = Alertmanager.Builder()
+            self._builder = AlertmanagerEndpoints.Builder()
             self._builder._in_context = True
             self._parent_builder = None
             self._field_name = None
@@ -30278,13 +30282,13 @@ class Alertmanager(Resource):
 
     @classmethod
     def new(cls) -> BuilderContext:
-        """Creates a new context manager builder for Alertmanager."""
+        """Creates a new context manager builder for AlertmanagerEndpoints."""
         return cls.BuilderContext()
 
-    class ListBuilder(GenericListBuilder["Alertmanager", Builder]):
+    class ListBuilder(GenericListBuilder["AlertmanagerEndpoints", Builder]):
         def __init__(self):
             raise NotImplementedError(
-                "This class is not meant to be instantiated. Use Alertmanager.list_builder() instead."
+                "This class is not meant to be instantiated. Use AlertmanagerEndpoints.list_builder() instead."
             )
 
     @classmethod
@@ -30417,14 +30421,17 @@ class Alerting(BaseModel):
             return Alerting(**self._attrs)
 
         @overload
-        def alertmanagers(self, value_or_callback: List[Alertmanager], /) -> "Alerting.Builder": ...
+        def alertmanagers(
+            self, value_or_callback: List[AlertmanagerEndpoints], /
+        ) -> "Alerting.Builder": ...
 
         @overload
         def alertmanagers(
             self,
             value_or_callback: Callable[
-                [GenericListBuilder[Alertmanager, Alertmanager.Builder]],
-                GenericListBuilder[Alertmanager, Alertmanager.Builder] | List[Alertmanager],
+                [GenericListBuilder[AlertmanagerEndpoints, AlertmanagerEndpoints.Builder]],
+                GenericListBuilder[AlertmanagerEndpoints, AlertmanagerEndpoints.Builder]
+                | List[AlertmanagerEndpoints],
             ],
             /,
         ) -> "Alerting.Builder": ...
@@ -30432,21 +30439,21 @@ class Alerting(BaseModel):
         @overload
         def alertmanagers(
             self, value_or_callback: Never = ...
-        ) -> ListBuilderContext[Alertmanager.Builder]: ...
+        ) -> ListBuilderContext[AlertmanagerEndpoints.Builder]: ...
 
         def alertmanagers(self, value_or_callback=None, /):
             """
             Alertmanager endpoints where Prometheus should send alerts to.
             """
             if self._in_context and value_or_callback is None:
-                context = ListBuilderContext[Alertmanager.Builder]()
+                context = ListBuilderContext[AlertmanagerEndpoints.Builder]()
                 context._parent_builder = self
                 context._field_name = "alertmanagers"
                 return context
 
             value = value_or_callback
             if callable(value_or_callback):
-                output = value_or_callback(Alertmanager.list_builder())
+                output = value_or_callback(AlertmanagerEndpoints.list_builder())
                 if isinstance(output, GenericListBuilder):
                     value = output.build()
                 else:
@@ -30479,7 +30486,7 @@ class Alerting(BaseModel):
     def list_builder(cls) -> ListBuilder:
         return GenericListBuilder[cls, cls.Builder]()  # type: ignore
 
-    alertmanagers: List[Alertmanager]
+    alertmanagers: List[AlertmanagerEndpoints]
     """
     Alertmanager endpoints where Prometheus should send alerts to.
     """
@@ -57427,14 +57434,14 @@ class ThanosRulerStatus(BaseModel):
     """
 
 
-class AlertmanagerModel(Resource):
+class Alertmanager(Resource):
     class Builder(BaseModelBuilder):
         @property
-        def cls(self) -> Type["AlertmanagerModel"]:
-            return AlertmanagerModel
+        def cls(self) -> Type["Alertmanager"]:
+            return Alertmanager
 
-        def build(self) -> "AlertmanagerModel":
-            return AlertmanagerModel(**self._attrs)
+        def build(self) -> "Alertmanager":
+            return Alertmanager(**self._attrs)
 
         def api_version(self, value: Optional[Literal["monitoring.coreos.com/v1"]], /) -> Self:
             """
@@ -57458,7 +57465,7 @@ class AlertmanagerModel(Resource):
         @overload
         def metadata(
             self, value_or_callback: Optional[apimachinery.ObjectMeta], /
-        ) -> "AlertmanagerModel.Builder": ...
+        ) -> "Alertmanager.Builder": ...
 
         @overload
         def metadata(
@@ -57468,7 +57475,7 @@ class AlertmanagerModel(Resource):
                 apimachinery.ObjectMeta.Builder | apimachinery.ObjectMeta,
             ],
             /,
-        ) -> "AlertmanagerModel.Builder": ...
+        ) -> "Alertmanager.Builder": ...
 
         @overload
         def metadata(
@@ -57492,7 +57499,7 @@ class AlertmanagerModel(Resource):
             return self._set("metadata", value)
 
         @overload
-        def spec(self, value_or_callback: AlertmanagerSpec, /) -> "AlertmanagerModel.Builder": ...
+        def spec(self, value_or_callback: AlertmanagerSpec, /) -> "Alertmanager.Builder": ...
 
         @overload
         def spec(
@@ -57501,7 +57508,7 @@ class AlertmanagerModel(Resource):
                 [AlertmanagerSpec.Builder], AlertmanagerSpec.Builder | AlertmanagerSpec
             ],
             /,
-        ) -> "AlertmanagerModel.Builder": ...
+        ) -> "Alertmanager.Builder": ...
 
         @overload
         def spec(self, value_or_callback: Never = ...) -> "AlertmanagerSpec.BuilderContext": ...
@@ -57525,7 +57532,7 @@ class AlertmanagerModel(Resource):
         @overload
         def status(
             self, value_or_callback: Optional[AlertmanagerStatus], /
-        ) -> "AlertmanagerModel.Builder": ...
+        ) -> "Alertmanager.Builder": ...
 
         @overload
         def status(
@@ -57535,7 +57542,7 @@ class AlertmanagerModel(Resource):
                 AlertmanagerStatus.Builder | AlertmanagerStatus,
             ],
             /,
-        ) -> "AlertmanagerModel.Builder": ...
+        ) -> "Alertmanager.Builder": ...
 
         @overload
         def status(self, value_or_callback: Never = ...) -> "AlertmanagerStatus.BuilderContext": ...
@@ -57556,9 +57563,9 @@ class AlertmanagerModel(Resource):
                     value = output
             return self._set("status", value)
 
-    class BuilderContext(BuilderContextBase["AlertmanagerModel.Builder"]):
+    class BuilderContext(BuilderContextBase["Alertmanager.Builder"]):
         def model_post_init(self, __context) -> None:
-            self._builder = AlertmanagerModel.Builder()
+            self._builder = Alertmanager.Builder()
             self._builder._in_context = True
             self._parent_builder = None
             self._field_name = None
@@ -57569,13 +57576,13 @@ class AlertmanagerModel(Resource):
 
     @classmethod
     def new(cls) -> BuilderContext:
-        """Creates a new context manager builder for AlertmanagerModel."""
+        """Creates a new context manager builder for Alertmanager."""
         return cls.BuilderContext()
 
-    class ListBuilder(GenericListBuilder["AlertmanagerModel", Builder]):
+    class ListBuilder(GenericListBuilder["Alertmanager", Builder]):
         def __init__(self):
             raise NotImplementedError(
-                "This class is not meant to be instantiated. Use AlertmanagerModel.list_builder() instead."
+                "This class is not meant to be instantiated. Use Alertmanager.list_builder() instead."
             )
 
     @classmethod
