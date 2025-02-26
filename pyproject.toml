@@ -87,5 +87,5 @@ input = [
 ]
 crd-namespace = "com.coreos.monitoring"
 updates = [
-    { match = "^(.*)\\.PrometheusSpec$", jsonpath = "properties.alerting.properties.alertmanagers.items.title", value = "\\g<1>.AlertmanagerEndpoints"},
+    { match = "^(.*)\\.PrometheusSpec$", jsonpath = "properties.alerting.properties.alertmanagers.items.title", value = "\\g<1>.AlertmanagerEndpoint"},
 ]
