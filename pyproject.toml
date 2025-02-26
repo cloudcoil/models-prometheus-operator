@@ -1,6 +1,6 @@
 [project]
 name = "cloudcoil.models.prometheus_operator"
-version = "0.0.0"
+version = "0.80.1.0"
 description = "Versioned prometheus-operator models for cloudcoil"
 authors = [{ name = "Sambhav Kothari", email = "sambhavs.email@gmail.com" }]
 maintainers = [{ name = "Sambhav Kothari", email = "sambhavs.email@gmail.com" }]
@@ -83,6 +83,6 @@ only-include = ["cloudcoil"]
 namespace = "cloudcoil.models.prometheus_operator"
 # Split the crl urls by comma
 input = [
-    "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.79.2/bundle.yaml",
+    "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.80.1/bundle.yaml",
 ]
 crd-namespace = "com.coreos.monitoring"
