@@ -11,7 +11,7 @@ classifiers = [
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "cloudcoil>=0.5.0.dev0",
+    "cloudcoil>=0.7.1,<0.8",
 ]
 keywords = ["cloud-native", "kubernetes", "prometheus-operator", "pydantic", "python", "async", "cloudcoil", "cloudcoil-models"]
 
@@ -58,12 +58,11 @@ dev = [
     "pytest-cov>=4.1.0",
     "ruff>=0.14",
     "mkdocs-autorefs",
-    "datamodel-code-generator[http]",
     "types-pyyaml>=6.0.12.20241221",
     "ipython>=8.12.3",
     "pytest-sugar>=1.0.0",
     "pytest-asyncio>=0.25.0",
-    "cloudcoil[codegen,test]"
+    "cloudcoil[codegen,test]>=0.7.1,<0.8"
 ]
 
 [tool.mypy]
@@ -76,14 +75,8 @@ omit = ["cloudcoil/models/**"]
 only-include = ["cloudcoil"]
 
 [[tool.cloudcoil.codegen.models]]
-# Unique name for the models
-# This will be used as the name for the setuptools entrypoints
 namespace = "cloudcoil.models.prometheus_operator"
-# Split the crl urls by comma
 input = [
-    "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.79.2/bundle.yaml",
+    "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.93.1/bundle.yaml",
 ]
 crd-namespace = "com.coreos.monitoring"
-updates = [
-    { match = "^(.*)\\.PrometheusSpec$", jsonpath = "properties.alerting.properties.alertmanagers.items.title", value = "\\g<1>.AlertmanagerEndpoint"},
-]

@@ -41,7 +41,7 @@ prometheus = prometheus_operator.Prometheus(
     metadata=apimachinery.ObjectMeta(name="main"),
     spec=prometheus_operator.PrometheusSpec(
         external_url="http://monitoring.my.systems/prometheus",
-        resources=apimachinery.ResourceRequirements(
+        resources=prometheus_operator.PrometheusSpecResources(
             requests={
                 "memory": "400Mi"
             }
@@ -55,7 +55,7 @@ alert_manager = prometheus_operator.Alertmanager(
     spec=prometheus_operator.AlertmanagerSpec(
         replicas=3,
         external_url="http://monitoring.my.systems/alertmanager",
-        resources=apimachinery.ResourceRequirements(
+        resources=prometheus_operator.AlertmanagerSpecResources(
             requests={
                 "memory": "400Mi"
             }
